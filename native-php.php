@@ -21,3 +21,17 @@ $response = curl_exec($curl);
 $err = curl_error($curl);
 
 curl_close($curl);
+
+
+// membuat dir/folder
+$folderUpload = "path folder";
+$resize_path = "path folder";
+# periksa apakah folder tersedia
+if (!is_dir($folderUpload)) {
+    # jika tidak maka folder harus dibuat terlebih dahulu
+    mkdir($folderUpload, 0777, $rekursif = true);
+}
+if (!is_dir($resize_path)) {
+    # jika tidak maka folder harus dibuat terlebih dahulu
+    mkdir($resize_path, 0777, $rekursif = true);
+}

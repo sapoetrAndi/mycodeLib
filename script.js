@@ -2,7 +2,7 @@
 function formatTglOrder(datetime){
     let date = new Date(datetime);
 
-    let day = date.getDay();
+    let day = date.getDate();
     let month = date.toLocaleString('default', { month: 'long' });
     let year = date.getFullYear();
     let hour = date.getHours();
@@ -10,4 +10,13 @@ function formatTglOrder(datetime){
     let second = date.getSeconds();
     let datetimeOrder = day + " " + month + " " + year + " " + hour + ":" + minute + ":" + second;
     return datetimeOrder;
+}
+
+// konversi dari angka ke format mata uang
+function numberToCurrency(number){
+    let harga =  new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR"
+    }).format(number);
+    return harga;
 }
