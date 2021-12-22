@@ -35,3 +35,21 @@ if (!is_dir($resize_path)) {
     # jika tidak maka folder harus dibuat terlebih dahulu
     mkdir($resize_path, 0777, $rekursif = true);
 }
+
+//untuk mengirim email menggunakan php mailer
+$email_agen = $this->session->userdata('email_agen');
+$subjectemail = 'Kode OTP Penarikan Deposit !';
+$contentemail =  "<center>
+<td colspan='2' style='padding:30px;text-align:center'>
+<p><span style='font-size:20px'><span style='color:#024668'><strong>Kode OTP Penarikan Deposit Anda</strong></span></span></p>
+<p>Ini adalah pesan otomatis dari Dropshipaja.com. Mohon tidak membalas email ini.</p>
+<p>Kode OTP Anda telah dibuat.</p>
+<p>Kode OTP Anda</p>
+<label style='border:1px solid #024668;font-size:30px;padding:10px;border-radius:15px;color:#024668'><strong> " . $otp . " </strong></label>
+<p>Kode OTP ini akan habis masa berlakunya dalam waktu <strong style='color:#024668'>1 Jam</strong>.</p>
+<p>Masukkan Kode OTP Anda di form yang telah disediakan untuk mengkonfirmasi identitas Anda.</p>
+<p>Terima Kasih,<br>Administrator Dropshipaja.com</p>
+</td>
+</center>";
+
+$sendemail = sendemail($email_agen, $subjectemail, $contentemail);
