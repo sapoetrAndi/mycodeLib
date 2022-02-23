@@ -22,3 +22,9 @@ public function uploadBlogOgImage($field){
         return $uploaded_data['file_name'];
     }
 }
+
+
+//cek apakah request ajax
+if (!$this->input->is_ajax_request()) {
+    exit('No direct script access allowed');
+}
