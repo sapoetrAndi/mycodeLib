@@ -15,8 +15,14 @@ function formatTglOrder(datetime){
 // konversi dari angka ke format mata uang
 function numberToCurrency(number){
     let harga =  new Intl.NumberFormat("id-ID", {
-        style: "currency",
-        currency: "IDR"
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(number);
     return harga;
 }
+
+//story kurang dari 24 jam
+// 24 jam == 86400000ms
+if((now - datetime_created) < 86400000 && (now - datetime_created) > 0){}
