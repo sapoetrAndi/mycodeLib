@@ -1,4 +1,13 @@
 <?php
+
+// cara query ke DB menggunakan php native (PDO)
+$stmt2 = $db_con->prepare("select resi,IFNULL(DATE_ADD(tanggal_kirim, INTERVAL 14 DAY),'NOT SENT') as batas_retur from tb_resi where order_id= :id");
+$stmt2->bindParam(":id", $orderid);
+$stmt2->execute();
+$resi = $stmt2->fetch(PDO::FETCH_ASSOC);
+
+
+// cara request ke open API menggunakan curl
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
