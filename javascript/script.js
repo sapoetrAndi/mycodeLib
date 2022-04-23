@@ -23,11 +23,11 @@ function numberToCurrency(number){
     return harga;
 }
 
-<<<<<<< HEAD
 //story kurang dari 24 jam
 // 24 jam == 86400000ms
 if((now - datetime_created) < 86400000 && (now - datetime_created) > 0){}
-=======
+
+
 /* Fungsi formatRupiah */
 function formatRupiah(angka, prefix){
     console.log(angka);
@@ -70,4 +70,3 @@ $(document).on({
         }
     }
 }, '.modal');
->>>>>>> a6be3c6db16999965a31178aee8602d97d34944c
